@@ -56,7 +56,10 @@ int main() {
 
     alloc.setAllocationCeiling(4000);
 
-    // Here we should be able to setup a Service frame, and then send it the remote node?
+    // Here we should be able to setup a Service frame
+    // Something akin to this: https://github.com/OpenCyphal/pycyphal/blob/01b9a9b57143bc916bfa2fa26102a787b4e558e9/pycyphal/transport/udp/_frame.py#L520-L544
+
+    // And then send it the remote node
 
     return 0;
 }
