@@ -39,20 +39,20 @@ $=:
     thermostat:
       pid.gains: [0.1, 0, 0]
 
-  # Launch the controlled plant simulator.
-  - $=: python plant.py
-    uavcan:
-      node.id: 43
-      sub.voltage.id:     2347
-      pub.temperature.id: 2346
-    model.environment.temperature: 300.0    # In UAVCAN everything follows SI, so this temperature is in kelvin.
+  # # Launch the controlled plant simulator.
+  # - $=: python plant.py
+  #   uavcan:
+  #     node.id: 43
+  #     sub.voltage.id:     2347
+  #     pub.temperature.id: 2346
+  #   model.environment.temperature: 300.0    # In UAVCAN everything follows SI, so this temperature is in kelvin.
 
   # Publish the setpoint a few times to show how the thermostat drives the plant to the correct temperature.
   # You can publish a different setpoint by running this command in a separate terminal to see how the system responds:
   #   yakut pub 2345 "kelvin: 200"
-  - $=: |
-      yakut pub 2345:uavcan.si.unit.temperature.scalar 450 -N3
-    uavcan.node.id: 100
+  # - $=: |
+  #     yakut pub 2345:uavcan.si.unit.temperature.scalar 450 -N3
+  #   uavcan.node.id: 100
 
 # Launch diagnostic subscribers to print messages in the terminal that runs the orchestrator.
 - yakut sub --with-metadata uavcan.diagnostic.record 2346:uavcan.si.sample.temperature.scalar
