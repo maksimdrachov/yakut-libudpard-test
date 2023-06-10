@@ -1,0 +1,6 @@
+demo_app.db
+plant.db
+venv/
+.pycyphal_generated
+sirius_cyber_corp
+uavcan/
